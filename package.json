@@ -1,0 +1,23 @@
+{
+  "name": "chaeunoia-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/hyukyyy/chaeunoia-backend.git",
+  "author": "HyukYoon <56344824+hyukyyy@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "mongoose": "^6.0.14",
+    "passport": "^0.5.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
