@@ -3,7 +3,7 @@ require("dotenv").config();
 
 const { DB_KIND, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_COLLECTION } =
   process.env;
-const dbUrl = `${DB_KIND}://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_COLLECTION}`;
+const dbUrl = `${DB_KIND}://${DB_HOST}:${DB_PORT}/${DB_COLLECTION}`;
 
 const connect = () =>
   mongoose

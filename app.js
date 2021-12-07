@@ -1,7 +1,8 @@
 const express = require("express");
 const session = require("express-session");
-const passport = require("passport");
+var passport = require("passport");
 const connect = require("./models/index");
+const User = require("./models/User");
 
 const app = express();
 
@@ -25,7 +26,7 @@ app.use(passport.session());
 
 // 라우팅
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.send("Hello");
 });
 
 // 인증 라우터 (authRouter)
