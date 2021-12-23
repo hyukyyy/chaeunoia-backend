@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const passportLocalMongoose = require("passport-local-mongoose");
 
-let user = new mongoose.Schema({
+const user = new mongoose.Schema({
   id: { type: String, required: true },
   password: { type: String, required: true },
   username: { type: String, required: true },
@@ -20,5 +21,10 @@ user.methods.verifyPassword = (candidatePassword, callback) => {
 // user.methods.verifyPassword = (candidatePassword, callback) => {
 //   callback(null, candidatePassword === this.password);
 // };
+
+user.plugin(passportLocalMongoose, {
+  usernameField: "id",
+  passwordField: "password",
+});
 
 module.exports = mongoose.model("User", user);

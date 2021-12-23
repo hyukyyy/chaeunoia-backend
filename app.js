@@ -1,10 +1,14 @@
 const express = require("express");
 const session = require("express-session");
-var passport = require("passport");
+const passport = require("passport");
+const passportConfig = require("./passport");
 const connect = require("./models/index");
-const User = require("./models/User");
+const User = require("./models/user");
+const dotenv = require("dotenv");
 
 const app = express();
+dotenv.config();
+passportConfig();
 
 // db 연결
 connect();
@@ -19,6 +23,10 @@ app.use(
     secret: process.env.SESSION_SECRET_KEY,
     resave: false,
     saveUninitialized: true,
+    cookie: {
+      httpOnly: true,
+      secure: false,
+    },
   })
 );
 app.use(passport.initialize());
